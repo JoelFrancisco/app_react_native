@@ -7,7 +7,7 @@ function Header({ message1, message2 }) {
   return (
     <View style={styles.container}>
       <View style={styles.textWrapper}>
-        <Text style={[styles.textFont, styles.textMessage1]}>{message1}</Text>
+        <Text style={[styles.textFont, styles.textGreen]}>{message1}</Text>
         <Text style={styles.textFont}>{message2}</Text>
       </View>
       <View style={styles.bubblesWrapper}>
@@ -44,7 +44,7 @@ const styles = StyleSheet.create({
     left: 20
   },
 
-  textMessage1: {
+  textGreen: {
     color: "#1abc9c",
   }
 });

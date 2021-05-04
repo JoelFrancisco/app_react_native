@@ -2,15 +2,13 @@ import React from "react";
 import { StyleSheet, View } from "react-native";
 import { StatusBar } from 'expo-status-bar';
 
-import Header from "./components/header";
-
-const name = "Jorge!";
+import Home from "./views/Home"
 
 export default function App() {
   return (
     <View style={styles.container}>
       <StatusBar hidden="Hidden"/>
-      <Header message1="Bem vindo" message2={name} />
+      <Home />
     </View>
   );
 }
