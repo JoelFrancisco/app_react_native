@@ -1,0 +1,9 @@
+{
+    "cSpell.words": [
+        "editicon"
+    ],
+    "editor.codeActionsOnSave": {
+        "source.fixAll": true,
+        "source.fixAll.eslint": true,
+    }
+}

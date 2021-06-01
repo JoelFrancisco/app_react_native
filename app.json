@@ -1,6 +1,6 @@
 {
   "expo": {
-    "entryPoint": "./src/App.js",
+    "entryPoint": "./src/App.jsx",
     "name": "app",
     "slug": "app",
     "version": "1.0.0",
@@ -28,6 +28,6 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    },
+    }
   }
 }
