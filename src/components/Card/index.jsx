@@ -1,24 +1,17 @@
 import React from 'react';
-import { Dimensions } from 'react-native';
+import { Dimensions, StyleSheet } from 'react-native';
 import styled from 'styled-components/native';
+import { BlurView } from 'expo-blur';
 
 import Maca from '../../../assets/maca.png';
-import NextIcon from '../../../assets/icon/nextIcon.png';
-import PrevIcon from '../../../assets/icon/prevIcon.png';
-import PlusIcon from '../../../assets/icon/plusIcon.png';
-import MinimizeIcon from '../../../assets/icon/minimizeIcon.png';
-import EnergyIcon from '../../../assets/icon/energyIcon.png';
-import ProteinIcon from '../../../assets/icon/proteinIcon.png';
+import NextIcon from '../../../assets/Icons/nextIcon.png';
+import PrevIcon from '../../../assets/Icons/prevIcon.png';
+import PlusIcon from '../../../assets/Icons/plusIcon.png';
+import MinimizeIcon from '../../../assets/Icons/minimizeIcon.png';
+import EnergyIcon from '../../../assets/Icons/energyIcon.png';
+import ProteinIcon from '../../../assets/Icons/proteinIcon.png';
 
 const { width, height } = Dimensions.get('window');
-
-const Background = styled.View`
-  background-color: #000000;
-  width: ${width}px;
-  height: ${height}px;
-  justify-content: center;
-  align-items: center;
-`;
 
 const OutterCard = styled.View`
   background-color: #ECF0F1;
@@ -36,7 +29,7 @@ const InnerCard = styled.View`
   border-radius: 17px;
   align-items: center;
   elevation: 5;
-  marginTop: 20px;
+  margin-top: 20px;
 `;
 
 const FoodPhoto = styled.Image`
@@ -51,14 +44,14 @@ const Title = styled.Text`
   font-weight: 700;
   font-size: 24px;
   width: 300px;
-  textAlign: center;
+  text-align: center;
 `;
 
 const FoodName = styled.Text`
   color: #2C3E50;
   font-weight: 700;
   font-size: 24px;
-  paddingTop: 15px;
+  padding-top: 15px;
 `;
 
 const FoodWrapper = styled.View`
@@ -74,14 +67,14 @@ const IconImage = styled.Image`
 `;
 
 const NextIconImage = styled(IconImage)`
-  marginTop: 15px;
+  margin-top: 15px;
 `;
 
 const SubTitle = styled.Text`
   color: #1ABC9C;
   font-weight: 500;
   font-size: 12px;
-  marginTop: 20px;
+  margin-top: 20px;
 `;
 
 const Field = styled.View` 
@@ -103,7 +96,7 @@ const FieldWrapper = styled.View`
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
-  marginTop: 30px;
+  margin-top: 30px;
 `;
 
 const FieldTitle = styled.Text`
@@ -118,11 +111,11 @@ const FieldValue = styled.Text`
 
 const BigField = styled(Field)`
   width: 95%;
-  marginTop: 30px;
+  margin-top: 30px;
 `;
 
 const MinimizeIconImage = styled(IconImage)`
-  marginTop: 40px;
+  margin-top: 40px;
 `;
 
 const FieldTitleWrapper = styled.View`
@@ -143,7 +136,8 @@ const ProteinIconImage = styled.Image`
 
 export function Card() {
   return (
-    <Background>
+    <BlurView intensity={100} style={
+      [StyleSheet.absoluteFill, { alignItems: 'center', justifyContent: 'center' }]}>
       <OutterCard>
         <FoodPhoto source={Maca} />
         <Title> Tabela Nutricional: </Title>
@@ -184,7 +178,7 @@ export function Card() {
           <MinimizeIconImage source={MinimizeIcon} />
         </InnerCard>
       </OutterCard>
-    </Background>
+    </BlurView>
   );
 }
 
