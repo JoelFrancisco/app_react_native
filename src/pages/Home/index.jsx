@@ -1,19 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 import { Dimensions } from "react-native";
 import { StatusBar } from "expo-status-bar";
 import styled from 'styled-components/native'
 
-import { Header } from "../../components/Header";
-import { Navbar } from "../../components/Navbar";
-import { Menu } from "../../components/Menu";
+import { Header } from "@components/Header";
+import { Navbar } from "@components/Navbar";
+import { Menu } from "@components/Menu";
 
-import homeGrayIcon from '../../../assets/Icons/homeGrayIcon.png';
-import searchGreenIcon from '../../../assets/Icons/searchGreenIcon.png';
-import favoritesGreenIcon from '../../../assets/Icons/favoritesGreenIcon.png';
-import settingsGreenIcon from '../../../assets/Icons/settingsGreenIcon.png';
+import homeGrayIcon from '@assets/Icons/homeGrayIcon.png';
+import searchGreenIcon from '@assets/Icons/searchGreenIcon.png';
+import favoritesGreenIcon from '@assets/Icons/favoritesGreenIcon.png';
+import settingsGreenIcon from '@assets/Icons/settingsGreenIcon.png';
 
-import { TotalConsumedCalories } from "../../components/TotalConsumedCalories";
-import { CaloriesLeft } from "../../components/CaloriesLeft";
+import { TotalConsumedCalories } from "@components/TotalConsumedCalories";
+import { CaloriesLeft } from "@components/CaloriesLeft";
+
+import { Card } from "@components/Card";
 
 const { width } = Dimensions.get('window');
 
@@ -60,10 +62,14 @@ export function Home({ navigation }) {
     favorites: favoritesGreenIcon,
     settings: settingsGreenIcon,
   }
+  
+  const [displayCard, setDisplayCard] = useState(false);
 
   return (
     <MainWrapper>
       <StatusBar hidden={true} />
+    
+      {displayCard && <Card setDisplayCard={setDisplayCard} />}
 
       <Header message1="Bem vindo" message2={name} />
 
@@ -79,7 +85,7 @@ export function Home({ navigation }) {
         <EditIcon source={require("../../../assets/editicon.png")} />
       </EditIconCaloriesLeftWrapper>
 
-      <Menu />
+      <Menu setDisplayCard={setDisplayCard} />
       <Navbar navigation={navigation} backgroundColors={backgroundColors} icons={icons} />
     </MainWrapper>
   );

@@ -7,7 +7,7 @@ const MainWrapper = styled.View`
   top: 450px;
 `;
 
-const ListIconWrapper = styled.View`
+const ListIconWrapper = styled.TouchableOpacity`
   margin-top: -80px;
   margin-left: 10px;
   padding-left: 5px;
@@ -25,12 +25,12 @@ const MenuText = styled.Text`
   color: #1abc9c;
 `;
 
-export function Menu() {
+export function Menu({ setDisplayCard }) {
   return (
     <MainWrapper>
       <Image source={require("../../../assets/menu.png")} />
 
-      <ListIconWrapper>
+      <ListIconWrapper onPress={() => setDisplayCard(true)}>
         <Image source={require("../../../assets/list.png")} />
       </ListIconWrapper>
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Dimensions, StyleSheet } from 'react-native';
+import { Dimensions, StyleSheet, TouchableOpacity } from 'react-native';
 import styled from 'styled-components/native';
 import { BlurView } from 'expo-blur';
 
@@ -134,10 +134,10 @@ const ProteinIconImage = styled.Image`
 `;
 
 
-export function Card() {
+export function Card({ setDisplayCard }) {
   return (
     <BlurView intensity={100} style={
-      [StyleSheet.absoluteFill, { alignItems: 'center', justifyContent: 'center' }]}>
+      [StyleSheet.absoluteFill, { alignItems: 'center', justifyContent: 'center', zIndex: 5}]}>
       <OutterCard>
         <FoodPhoto source={Maca} />
         <Title> Tabela Nutricional: </Title>
@@ -175,7 +175,9 @@ export function Card() {
             <FieldValue> 0,2g </FieldValue>
           </BigField> 
 
-          <MinimizeIconImage source={MinimizeIcon} />
+          <TouchableOpacity onPress={() => setDisplayCard(false)}>
+            <MinimizeIconImage source={MinimizeIcon} />
+          </TouchableOpacity>
         </InnerCard>
       </OutterCard>
     </BlurView>
