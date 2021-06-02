@@ -3,13 +3,13 @@ import { Dimensions, StyleSheet } from 'react-native';
 import styled from 'styled-components/native';
 import { BlurView } from 'expo-blur';
 
-import Maca from '../../../assets/maca.png';
-import NextIcon from '../../../assets/Icons/nextIcon.png';
-import PrevIcon from '../../../assets/Icons/prevIcon.png';
-import PlusIcon from '../../../assets/Icons/plusIcon.png';
-import MinimizeIcon from '../../../assets/Icons/minimizeIcon.png';
-import EnergyIcon from '../../../assets/Icons/energyIcon.png';
-import ProteinIcon from '../../../assets/Icons/proteinIcon.png';
+import Maca from '@assets/maca.png';
+import NextIcon from '@assets/Icons/nextIcon.png';
+import PrevIcon from '@assets/Icons/prevIcon.png';
+import PlusIcon from '@assets/Icons/plusIcon.png';
+import MinimizeIcon from '@assets/Icons/minimizeIcon.png';
+import EnergyIcon from '@assets/Icons/energyIcon.png';
+import ProteinIcon from '@assets/Icons/proteinIcon.png';
 
 const { width, height } = Dimensions.get('window');
 
