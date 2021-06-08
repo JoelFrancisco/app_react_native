@@ -1,5 +1,6 @@
 {
   "expo": {
+    "entryPoint": "./src/App.jsx",
     "name": "app",
     "slug": "app",
     "version": "1.0.0",

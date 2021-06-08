@@ -1,0 +1,12 @@
+{
+    "cSpell.words": [
+        "Nutritionix",
+        "Outter",
+        "SATC",
+        "editicon"
+    ],
+    "editor.codeActionsOnSave": {
+        "source.fixAll": true,
+        "source.fixAll.eslint": true,
+    }
+}
