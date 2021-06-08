@@ -1,5 +1,5 @@
-import React from 'react';
-import { Dimensions, StyleSheet, TouchableOpacity } from 'react-native';
+import React, { useRef } from 'react';
+import { Dimensions, StyleSheet, TouchableOpacity, Animation } from 'react-native';
 import styled from 'styled-components/native';
 import { BlurView } from 'expo-blur';
 
@@ -10,6 +10,7 @@ import PlusIcon from '@assets/Icons/plusIcon.png';
 import MinimizeIcon from '@assets/Icons/minimizeIcon.png';
 import EnergyIcon from '@assets/Icons/energyIcon.png';
 import ProteinIcon from '@assets/Icons/proteinIcon.png';
+import Animated from 'react-native-reanimated';
 
 const { width, height } = Dimensions.get('window');
 
@@ -135,52 +136,73 @@ const ProteinIconImage = styled.Image`
 
 
 export function Card({ setDisplayCard }) {
+  // const fadeAnimation = useRef(new Animated.Value(0)).current;
+  
+  // const fadeIn = () => {
+  //   Animated.timing(fadeAnimation, {
+  //     toValue: 1,
+  //     duration: 5000,
+  //   }).start();
+  // };
+  
+  // const fadeOut = () => {
+  //   Animated.timing(fadeAnimation, {
+  //     toValue: 0,
+  //     duration: 5000,
+  //   }).start();
+  // };
+
   return (
-    <BlurView intensity={100} style={
-      [StyleSheet.absoluteFill, { alignItems: 'center', justifyContent: 'center', zIndex: 5}]}>
-      <OutterCard>
-        <FoodPhoto source={Maca} />
-        <Title> Tabela Nutricional: </Title>
-        
-        <FoodWrapper>
-          <NextIconImage source={PrevIcon} />
-          <FoodName> Maçã </FoodName>
-          <NextIconImage source={NextIcon} />
-        </FoodWrapper>
+    // <Animated.View style={{ opacity: fadeAnimation }}>
+      <BlurView intensity={100} style={
+        [StyleSheet.absoluteFill, { alignItems: 'center', justifyContent: 'center', zIndex: 5}]}>
+        <OutterCard>
+          <FoodPhoto source={Maca} />
+          <Title> Tabela Nutricional: </Title>
+          
+          <FoodWrapper>
+            <NextIconImage source={PrevIcon} />
+            <FoodName> Maçã </FoodName>
+            <NextIconImage source={NextIcon} />
+          </FoodWrapper>
 
-        <SubTitle> Quantidade em 100g de maçã sem casca </SubTitle>
+          <SubTitle> Quantidade em 100g de maçã sem casca </SubTitle>
 
-        <InnerCard>
-          <FieldWrapper> 
-            <SmallField>
-              <FieldTitle> Consumido hoje: </FieldTitle>
-              <FieldValue> 400g </FieldValue>
-            </SmallField>
-            <IconImage source={PlusIcon} />
-          </FieldWrapper>
+          <InnerCard>
+            <FieldWrapper> 
+              <SmallField>
+                <FieldTitle> Consumido hoje: </FieldTitle>
+                <FieldValue> 400g </FieldValue>
+              </SmallField>
+              <IconImage source={PlusIcon} />
+            </FieldWrapper>
 
-          <BigField>
-            <FieldTitleWrapper>
-              <FieldTitleIcon source={EnergyIcon} />
-              <FieldTitle> Energia: </FieldTitle>
-            </FieldTitleWrapper>
-            <FieldValue> 61 calorias </FieldValue>
-          </BigField> 
+            <BigField>
+              <FieldTitleWrapper>
+                <FieldTitleIcon source={EnergyIcon} />
+                <FieldTitle> Energia: </FieldTitle>
+              </FieldTitleWrapper>
+              <FieldValue> 61 calorias </FieldValue>
+            </BigField> 
 
-          <BigField>
-            <FieldTitleWrapper>
-              <ProteinIconImage source={ProteinIcon} />
-              <FieldTitle> Proteínas: </FieldTitle>
-            </FieldTitleWrapper>
-            <FieldValue> 0,2g </FieldValue>
-          </BigField> 
+            <BigField>
+              <FieldTitleWrapper>
+                <ProteinIconImage source={ProteinIcon} />
+                <FieldTitle> Proteínas: </FieldTitle>
+              </FieldTitleWrapper>
+              <FieldValue> 0,2g </FieldValue>
+            </BigField> 
 
-          <TouchableOpacity onPress={() => setDisplayCard(false)}>
-            <MinimizeIconImage source={MinimizeIcon} />
-          </TouchableOpacity>
-        </InnerCard>
-      </OutterCard>
-    </BlurView>
+            <TouchableOpacity onPress={() => {
+              //fadeOut();  
+              setDisplayCard(false)
+            }}>
+              <MinimizeIconImage source={MinimizeIcon} />
+            </TouchableOpacity>
+          </InnerCard>
+        </OutterCard>
+      </BlurView>
+    // </Animated.View>
   );
 }
 

@@ -5,13 +5,14 @@ import { createStackNavigator } from '@react-navigation/stack';
 
 import { Home } from './pages/Home';
 import { Search } from './pages/Search';
+import { FirstScreenBackground } from '@components/FirstScreenBackground';
 
 const Stack = createStackNavigator();
 
 export function Routes() {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Home" headerMode='none' >
+      <Stack.Navigator initialRouteName="FirstScreen" headerMode='none' >
         <Stack.Screen
           name="Home"
           component={Home}
@@ -20,6 +21,11 @@ export function Routes() {
         <Stack.Screen
           name="Search"
           component={Search}
+        />
+
+        <Stack.Screen
+          name="FirstScreen"
+          component={FirstScreenBackground}
         />
       </Stack.Navigator>
     </NavigationContainer>

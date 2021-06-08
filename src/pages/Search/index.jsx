@@ -3,12 +3,17 @@ import { StyleSheet, View, Text, Image, Dimensions, ScrollView } from "react-nat
 import styled from 'styled-components/native'
 import { StatusBar } from 'expo-status-bar';
 
-import { Header } from "../../components/Header";
-import { Navbar } from '../../components/Navbar';
-import { SearchBox } from "../../components/SearchBox";
-import { FoodBox } from "../../components/FoodBox";
+import { Header } from "@components/Header";
+import { Navbar } from '@components/Navbar';
+import { SearchBox } from "@components/SearchBox";
+import { FoodBox } from "@components/FoodBox";
 
-import lettuceImage from '../../../assets/alface.png';
+import lettuceImage from '@assets/alface.png';
+
+import homeGreenIcon from '@assets/Icons/homeGreenIcon.png';
+import searchGrayIcon from '@assets/Icons/searchGrayIcon.png';
+import favoritesGreenIcon from '@assets/Icons/favoritesGreenIcon.png';
+import settingsGreenIcon from '@assets/Icons/settingsGreenIcon.png';
 
 const { width } = Dimensions.get('window');
 
@@ -26,6 +31,20 @@ const BreadWrapper = styled.View`
 `;
 
 export function Search({ navigation }) {
+  const backgroundColors = {
+    home: "#2c3e50",
+    search: "#1abc9c",
+    favorites: "#2C3E50",
+    settings: "#2C3E50",
+  }
+
+  const icons = {
+    home: homeGreenIcon,
+    search: searchGrayIcon,
+    favorites: favoritesGreenIcon,
+    settings: settingsGreenIcon,
+  }
+
   return (
     <MainWrapper>
       <StatusBar hidden={true} />
@@ -50,7 +69,7 @@ export function Search({ navigation }) {
         </FoodBox>
       </ScrollView>
 
-      <Navbar navigation={navigation} page="Search" />
+      <Navbar navigation={navigation} backgroundColors={backgroundColors} icons={icons} />
     </MainWrapper>
   );
 }
