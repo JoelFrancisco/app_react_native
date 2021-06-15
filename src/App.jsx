@@ -25,14 +25,11 @@ const App = () => {
         }
       } catch (err) {
         console.error(err)
-      } finally {
       }
     })()
   }, [])
-  
-  useEffect(() =>{
-    setContextValue(userData)
-  }, [userData])
+
+  useEffect(() => setContextValue(userData), [userData])
 
   return (
     <UserDataContext.Provider value={contextValue}>

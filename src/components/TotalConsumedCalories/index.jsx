@@ -1,6 +1,7 @@
-import React from "react";
-import { Image, Dimensions } from "react-native";
-import styled from 'styled-components/native'
+/* eslint-disable react/prop-types */
+import React from 'react';
+import { Image, Dimensions } from 'react-native';
+import styled from 'styled-components/native';
 
 const { width } = Dimensions.get('window');
 
@@ -25,18 +26,21 @@ const TotalConsumedCaloriesValueWrapper = styled.View`
 
 const TotalConsumedCaloriesValue = styled.Text`
   font-size: 20px;
-  color: #7f8c8D;
+  color: #7f8c8d;
 `;
 
 export function TotalConsumedCalories({ children }) {
   return (
     <TotalConsumedCaloriesWrapper>
-      <TotalConsumedCaloriesTitle> Total consumido no dia: </TotalConsumedCaloriesTitle>
-      <Image source={require("../../../assets/caloriesView.png")} />
+      <TotalConsumedCaloriesTitle>
+        {' '}
+        Total consumido no dia:{' '}
+      </TotalConsumedCaloriesTitle>
+      <Image source={require('../../../assets/caloriesView.png')} />
 
       <TotalConsumedCaloriesValueWrapper>
         <TotalConsumedCaloriesValue> {children} </TotalConsumedCaloriesValue>
       </TotalConsumedCaloriesValueWrapper>
     </TotalConsumedCaloriesWrapper>
-  )
+  );
 }
