@@ -1,32 +1,23 @@
-import React from 'react';
-import 'react-native-gesture-handler';
-import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
+import React from 'react'
+import 'react-native-gesture-handler'
+import { NavigationContainer } from '@react-navigation/native'
+import { createStackNavigator } from '@react-navigation/stack'
 
-import { Home } from './pages/Home';
-import { Search } from './pages/Search';
-import { FirstScreenBackground } from '@components/FirstScreenBackground';
+import { FirstScreenBackground } from '@components/FirstScreenBackground'
+import { Home } from './pages/Home'
+import { Search } from './pages/Search'
 
-const Stack = createStackNavigator();
+const Stack = createStackNavigator()
 
-export function Routes() {
+export function Routes({ initialRouteName }) {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="FirstScreen" headerMode='none' >
-        <Stack.Screen
-          name="Home"
-          component={Home}
-        />
+      <Stack.Navigator initialRouteName={initialRouteName} headerMode="none">
+        <Stack.Screen name="Home" component={Home} />
 
-        <Stack.Screen
-          name="Search"
-          component={Search}
-        />
+        <Stack.Screen name="Search" component={Search} />
 
-        <Stack.Screen
-          name="FirstScreen"
-          component={FirstScreenBackground}
-        />
+        <Stack.Screen name="FirstScreen" component={FirstScreenBackground} />
       </Stack.Navigator>
     </NavigationContainer>
   )

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, userEffect } from "react";
 import { Dimensions } from "react-native";
 import { StatusBar } from "expo-status-bar";
 import styled from 'styled-components/native'
@@ -16,6 +16,7 @@ import { TotalConsumedCalories } from "@components/TotalConsumedCalories";
 import { CaloriesLeft } from "@components/CaloriesLeft";
 
 import { Card } from "@components/Card";
+import { useContext } from "react/cjs/react.production.min";
 
 const { width } = Dimensions.get('window');
 
@@ -48,6 +49,12 @@ const consumedCalories = "1000 calorias";
 const caloriesLeft = "1000 calorias";
 
 export function Home({ navigation }) {
+  const [userData, setUserData] = useState({})
+
+  userEffect(() => {
+    const data = useContext(UserDataContext)
+    setUserData(data)
+  }, [])
 
   const backgroundColors = {
     home: "#1abc9c",
