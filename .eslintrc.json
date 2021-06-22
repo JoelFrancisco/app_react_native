@@ -24,5 +24,19 @@
         "prettier/prettier": "error",
         "space-before-function-paren": "off",
         "import/prefer-default-export": "off"
+    },
+    "settings": {
+        "import/resolver": {
+            "alias": {
+                "map": [
+                    ["@pages", "./src/pages"],
+                    ["@components", "./src/components"],
+                    ["@assets", "./assets"],
+                    ["@services", "./src/services"],
+                    ["@contexts", "./src/contexts"]
+                ],
+                "extensions": [".js", ".jsx", ".json"]
+            }
+        }
     }
 }

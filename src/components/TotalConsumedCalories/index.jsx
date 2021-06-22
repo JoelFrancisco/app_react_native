@@ -1,7 +1,10 @@
+/* eslint-disable import/no-unresolved */
 /* eslint-disable react/prop-types */
 import React from 'react';
 import { Image, Dimensions } from 'react-native';
 import styled from 'styled-components/native';
+
+import CaloriesView from '@assets/caloriesView.png';
 
 const { width } = Dimensions.get('window');
 
@@ -36,7 +39,7 @@ export function TotalConsumedCalories({ children }) {
         {' '}
         Total consumido no dia:{' '}
       </TotalConsumedCaloriesTitle>
-      <Image source={require('../../../assets/caloriesView.png')} />
+      <Image source={CaloriesView} />
 
       <TotalConsumedCaloriesValueWrapper>
         <TotalConsumedCaloriesValue> {children} </TotalConsumedCaloriesValue>

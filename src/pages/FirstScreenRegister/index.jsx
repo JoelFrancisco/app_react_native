@@ -6,7 +6,7 @@ import { FirstRegisterInput } from '@components/FirstRegisterInput';
 export function FirstScreenRegister() {
   return (
     <FirstScreenBackground>
-      <FirstRegisterInput />
+      <FirstRegisterInput />;
     </FirstScreenBackground>
   );
 }

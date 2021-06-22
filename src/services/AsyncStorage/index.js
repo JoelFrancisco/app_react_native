@@ -6,7 +6,7 @@ const storeData = async (key, value) => {
   } catch (err) {
     console.error(err);
   }
-}
+};
 
 const storeDataObject = async (key, value) => {
   try {
@@ -15,26 +15,26 @@ const storeDataObject = async (key, value) => {
   } catch (err) {
     console.error(err);
   }
-}
+};
 
-const getData = async (key) => {
+const getData = async key => {
   try {
     const value = await AsyncStorage.getItem(key);
     if (value != null) {
       return value;
     }
-  } catch(err) {
+  } catch (err) {
     console.error(err);
   }
-}
+};
 
-const getDataObject = async (key) => {
+const getDataObject = async key => {
   try {
     const jsonValue = await AsyncStorage.getItem(key);
     return jsonValue != null ? JSON.parse(jsonValue) : null;
-  } catch(err) {
+  } catch (err) {
     console.error(err);
   }
-}
+};
 
-export { storeData, getData, storeDataObject, getDataObject }
+export { storeData, getData, storeDataObject, getDataObject };

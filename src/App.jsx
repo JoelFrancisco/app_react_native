@@ -1,41 +1,42 @@
 /* eslint-disable import/no-unresolved */
 /* eslint-disable no-console */
-import React, { useState, useEffect, createContext } from 'react'
-import { registerRootComponent } from 'expo'
-import { getDataObject } from '@services/AsyncStorage'
-import { Routes } from './Routes'
-
-export const UserDataContext = createContext()
+import React, { useState, useEffect } from 'react';
+import { registerRootComponent } from 'expo';
+import { getDataObject } from '@services/AsyncStorage';
+import { UserDataProvider } from './contexts/UserDataContext';
+import { Routes } from './Routes';
 
 const App = () => {
-  const [userData, setUserData] = useState({})
-  const [initialRoute, setInitialRoute] = useState('')
-  const [contextValue, setContextValue] = useState()
+  const [userData, setUserData] = useState({});
+  const [initialRoute, setInitialRoute] = useState('');
+  const [finishedLoading, setFinishedLoading] = useState(false);
 
   useEffect(() => {
-    ;(async () => {
+    (async () => {
       try {
-        const data = await getDataObject('userData')
+        const data = await getDataObject('@userData');
+        console.log(data);
         if (data) {
-          setInitialRoute('Home')
-          setUserData(data)
+          setInitialRoute('Home');
+          setUserData(data);
+          setFinishedLoading(true);
         } else {
-          setInitialRoute('FirstScreen')
-          setContextValue([userData, setUserData])
+          setInitialRoute('FirstScreen');
+          setFinishedLoading(true);
         }
       } catch (err) {
-        console.error(err)
+        console.error(err);
       }
-    })()
-  }, [])
-
-  useEffect(() => setContextValue(userData), [userData])
+    })();
+  }, []);
 
   return (
-    <UserDataContext.Provider value={contextValue}>
-      <Routes initialRoute={initialRoute} />
-    </UserDataContext.Provider>
-  )
-}
+    <UserDataProvider>
+      {finishedLoading ? (
+        <Routes initialRouteName={initialRoute} userData={userData} />
+      ) : null}
+    </UserDataProvider>
+  );
+};
 
-export default registerRootComponent(App)
+export default registerRootComponent(App);

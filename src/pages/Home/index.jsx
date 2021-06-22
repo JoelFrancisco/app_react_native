@@ -1,29 +1,30 @@
-import React, { useState, userEffect } from "react";
-import { Dimensions } from "react-native";
-import { StatusBar } from "expo-status-bar";
-import styled from 'styled-components/native'
+/* eslint-disable react/prop-types */
+/* eslint-disable import/no-unresolved */
+import React, { useState } from 'react';
+import { Dimensions } from 'react-native';
+import { StatusBar } from 'expo-status-bar';
+import styled from 'styled-components/native';
 
-import { Header } from "@components/Header";
-import { Navbar } from "@components/Navbar";
-import { Menu } from "@components/Menu";
+import { Header } from '@components/Header';
+import { Navbar } from '@components/Navbar';
+import { Menu } from '@components/Menu';
 
 import homeGrayIcon from '@assets/Icons/homeGrayIcon.png';
 import searchGreenIcon from '@assets/Icons/searchGreenIcon.png';
 import favoritesGreenIcon from '@assets/Icons/favoritesGreenIcon.png';
 import settingsGreenIcon from '@assets/Icons/settingsGreenIcon.png';
 
-import { TotalConsumedCalories } from "@components/TotalConsumedCalories";
-import { CaloriesLeft } from "@components/CaloriesLeft";
+import { TotalConsumedCalories } from '@components/TotalConsumedCalories';
+import { CaloriesLeft } from '@components/CaloriesLeft';
 
-import { Card } from "@components/Card";
-import { useContext } from "react/cjs/react.production.min";
+import { Card } from '@components/Card';
 
 const { width } = Dimensions.get('window');
 
 const MainWrapper = styled.View`
   width: ${width}px;
   flex: 1;
-  background-color: #ECF0F1;
+  background-color: #ecf0f1;
   align-items: center;
   justify-content: center;
 `;
@@ -44,38 +45,31 @@ const EditIconCaloriesLeftWrapper = styled.View`
   top: 350px;
 `;
 
-const name = "Jorge!";
-const consumedCalories = "1000 calorias";
-const caloriesLeft = "1000 calorias";
+const name = 'Jorge!';
+const consumedCalories = '1000 calorias';
+const caloriesLeft = '1000 calorias';
 
 export function Home({ navigation }) {
-  const [userData, setUserData] = useState({})
-
-  userEffect(() => {
-    const data = useContext(UserDataContext)
-    setUserData(data)
-  }, [])
-
   const backgroundColors = {
-    home: "#1abc9c",
-    search: "#2c3e50",
-    favorites: "#2C3E50",
-    settings: "#2C3E50",
-  }
+    home: '#1abc9c',
+    search: '#2c3e50',
+    favorites: '#2C3E50',
+    settings: '#2C3E50',
+  };
 
   const icons = {
     home: homeGrayIcon,
     search: searchGreenIcon,
     favorites: favoritesGreenIcon,
     settings: settingsGreenIcon,
-  }
-  
+  };
+
   const [displayCard, setDisplayCard] = useState(false);
 
   return (
     <MainWrapper>
-      <StatusBar hidden={true} />
-    
+      <StatusBar hidden />
+
       {displayCard && <Card setDisplayCard={setDisplayCard} />}
 
       <Header message1="Bem vindo" message2={name} />
@@ -83,17 +77,21 @@ export function Home({ navigation }) {
       <TotalConsumedCalories> {consumedCalories} </TotalConsumedCalories>
 
       <EditIconTotalConsumedCaloriesWrapper>
-        <EditIcon source={require("../../../assets/editicon.png")} />
+        <EditIcon source={require('../../../assets/editicon.png')} />
       </EditIconTotalConsumedCaloriesWrapper>
 
       <CaloriesLeft> {caloriesLeft} </CaloriesLeft>
 
       <EditIconCaloriesLeftWrapper>
-        <EditIcon source={require("../../../assets/editicon.png")} />
+        <EditIcon source={require('../../../assets/editicon.png')} />
       </EditIconCaloriesLeftWrapper>
 
       <Menu setDisplayCard={setDisplayCard} />
-      <Navbar navigation={navigation} backgroundColors={backgroundColors} icons={icons} />
+      <Navbar
+        navigation={navigation}
+        backgroundColors={backgroundColors}
+        icons={icons}
+      />
     </MainWrapper>
   );
 }
