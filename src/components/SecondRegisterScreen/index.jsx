@@ -2,13 +2,13 @@
 import React from 'react';
 
 import { FirstScreenBackground } from '@components/FirstScreenBackground';
-import { FirstRegisterInput } from '@components/FirstRegisterInput';
+import { SecondRegisterInput } from '../SecondRegisterInput';
 
-export function FirstScreenRegister({ navigation }) {
+export function SecondRegisterScreen({ navigation }) {
   return (
     <>
       <FirstScreenBackground />
-      <FirstRegisterInput navigation={navigation} />
+      <SecondRegisterInput navigation={navigation} />
     </>
   );
 }

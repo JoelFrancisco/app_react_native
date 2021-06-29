@@ -1,92 +1,104 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable import/no-unresolved */
 import React, { useState } from 'react';
-import { Dimensions } from 'react-native';
+import { TouchableOpacity, ScrollView } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
-import styled from 'styled-components/native';
 
 import { Header } from '@components/Header';
 import { Navbar } from '@components/Navbar';
-import { Menu } from '@components/Menu';
-
-import homeGrayIcon from '@assets/Icons/homeGrayIcon.png';
-import searchGreenIcon from '@assets/Icons/searchGreenIcon.png';
-import favoritesGreenIcon from '@assets/Icons/favoritesGreenIcon.png';
-import settingsGreenIcon from '@assets/Icons/settingsGreenIcon.png';
-
-import { TotalConsumedCalories } from '@components/TotalConsumedCalories';
-import { CaloriesLeft } from '@components/CaloriesLeft';
-
 import { Card } from '@components/Card';
 
-const { width } = Dimensions.get('window');
+import homeGrayIcon from '@assets/Icons/homeGrayIcon.png';
+import settingsGreenIcon from '@assets/Icons/settingsGreenIcon.png';
+import searchIcon from '@assets/Icons/searchGreenIcon.png';
 
-const MainWrapper = styled.View`
-  width: ${width}px;
-  flex: 1;
-  background-color: #ecf0f1;
-  align-items: center;
-  justify-content: center;
-`;
+import { CaloriesContainer } from '@components/CaloriesContainer';
+import { FoodCardHome } from '@components/FoodCardHome';
+import { Search } from '@pages/Search';
 
-const EditIcon = styled.Image`
-  width: 24px;
-`;
-
-const EditIconTotalConsumedCaloriesWrapper = styled.View`
-  position: absolute;
-  right: 50px;
-  top: 185px;
-`;
-
-const EditIconCaloriesLeftWrapper = styled.View`
-  position: absolute;
-  right: 50px;
-  top: 350px;
-`;
+import {
+  MainWrapper,
+  InnerWrapper,
+  Title,
+  SectionWrapper,
+  DummySearchBar,
+  SecondSectionWrapper,
+  SearchBarWrapper,
+  Icon,
+} from './style';
 
 const name = 'Jorge!';
-const consumedCalories = '1000 calorias';
-const caloriesLeft = '1000 calorias';
 
 export function Home({ navigation }) {
   const backgroundColors = {
     home: '#1abc9c',
-    search: '#2c3e50',
-    favorites: '#2C3E50',
     settings: '#2C3E50',
   };
 
   const icons = {
     home: homeGrayIcon,
-    search: searchGreenIcon,
-    favorites: favoritesGreenIcon,
     settings: settingsGreenIcon,
   };
 
   const [displayCard, setDisplayCard] = useState(false);
+  const [displaySearch, setDisplaySearch] = useState(false);
 
   return (
     <MainWrapper>
       <StatusBar hidden />
 
       {displayCard && <Card setDisplayCard={setDisplayCard} />}
+      {displaySearch && <Search setDisplaySearch={setDisplaySearch} />}
 
       <Header message1="Bem vindo" message2={name} />
 
-      <TotalConsumedCalories> {consumedCalories} </TotalConsumedCalories>
+      <InnerWrapper>
+        <ScrollView>
+          <SectionWrapper>
+            <Title>Total consumido no dia:</Title>
+            <CaloriesContainer />
+          </SectionWrapper>
 
-      <EditIconTotalConsumedCaloriesWrapper>
-        <EditIcon source={require('../../../assets/editicon.png')} />
-      </EditIconTotalConsumedCaloriesWrapper>
+          <SectionWrapper>
+            <Title>Pode-se consumir ainda no dia:</Title>
+            <CaloriesContainer />
+          </SectionWrapper>
 
-      <CaloriesLeft> {caloriesLeft} </CaloriesLeft>
+          <SecondSectionWrapper>
+            <Title>Pesquisar alimento:</Title>
+            <TouchableOpacity
+              onPress={() => {
+                setDisplaySearch(true);
+              }}
+            >
+              <SearchBarWrapper>
+                <DummySearchBar />
+                <Icon source={searchIcon} />
+              </SearchBarWrapper>
+            </TouchableOpacity>
+          </SecondSectionWrapper>
 
-      <EditIconCaloriesLeftWrapper>
-        <EditIcon source={require('../../../assets/editicon.png')} />
-      </EditIconCaloriesLeftWrapper>
+          <FoodCardHome setDisplayCard={setDisplayCard} />
+          <FoodCardHome setDisplayCard={setDisplayCard} />
+          <FoodCardHome setDisplayCard={setDisplayCard} />
+          <FoodCardHome setDisplayCard={setDisplayCard} />
+          <FoodCardHome setDisplayCard={setDisplayCard} />
+          <FoodCardHome setDisplayCard={setDisplayCard} />
+          <FoodCardHome setDisplayCard={setDisplayCard} />
+          <FoodCardHome setDisplayCard={setDisplayCard} />
+          <FoodCardHome setDisplayCard={setDisplayCard} />
+          <FoodCardHome setDisplayCard={setDisplayCard} />
+          <FoodCardHome setDisplayCard={setDisplayCard} />
+          <FoodCardHome setDisplayCard={setDisplayCard} />
+          <FoodCardHome setDisplayCard={setDisplayCard} />
+          <FoodCardHome setDisplayCard={setDisplayCard} />
+          <FoodCardHome setDisplayCard={setDisplayCard} />
+          <FoodCardHome setDisplayCard={setDisplayCard} />
+          <FoodCardHome setDisplayCard={setDisplayCard} />
+        </ScrollView>
+      </InnerWrapper>
 
-      <Menu setDisplayCard={setDisplayCard} />
+      {/* <Menu setDisplayCard={setDisplayCard} /> */}
       <Navbar
         navigation={navigation}
         backgroundColors={backgroundColors}

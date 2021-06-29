@@ -1,5 +1,6 @@
+/* eslint-disable react/prop-types */
 import React, { useState, useEffect } from 'react';
-import { Dimensions } from 'react-native';
+import { Dimensions, TouchableOpacity } from 'react-native';
 import styled from 'styled-components';
 
 import NextIconAsset from '@assets/Icons/arrow-right.png';
@@ -13,7 +14,7 @@ const WelcomeText = styled.Text`
   font-size: 24px;
   text-align: center;
   margin-bottom: 40px;
-  z-index: 99;
+  z-index: 98;
 `;
 
 const InputText = styled.TextInput`
@@ -24,7 +25,7 @@ const InputText = styled.TextInput`
   margin-top: -15px;
   margin-left: auto;
   margin-right: auto;
-  z-index: 99;
+  z-index: 98;
 `;
 
 const Wrapper = styled.View`
@@ -32,18 +33,18 @@ const Wrapper = styled.View`
   height: ${height}px;
   margin-top: 255px;
   position: absolute;
-  z-index: 99;
+  z-index: 98;
 `;
 
 const NextIcon = styled.Image`
   width: 50px;
   height: 50px;
   margin-left: 175px;
-  margin-top: 10px;
+  margin-top: -10px;
   z-index: 99;
 `;
 
-export function FirstRegisterInput() {
+export function FirstRegisterInput({ navigation }) {
   const [text, setText] = useState('');
   const { userData, setUserData } = useUserData();
 
@@ -55,7 +56,9 @@ export function FirstRegisterInput() {
       <WelcomeText>Precisamos de algumas informações para começar.</WelcomeText>
       <WelcomeText>Informe seu nome:</WelcomeText>
       <InputText onChangeText={setText} />
-      <NextIcon source={NextIconAsset} />
+      <TouchableOpacity onPress={() => navigation.navigate('SecondScreen')}>
+        <NextIcon source={NextIconAsset} />
+      </TouchableOpacity>
     </Wrapper>
   );
 }

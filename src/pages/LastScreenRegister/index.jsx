@@ -2,13 +2,13 @@
 import React from 'react';
 
 import { FirstScreenBackground } from '@components/FirstScreenBackground';
-import { FirstRegisterInput } from '@components/FirstRegisterInput';
+import { LastRegisterInput } from '@components/LastRegisterInput';
 
-export function FirstScreenRegister({ navigation }) {
+export function LastScreenRegister({ navigation }) {
   return (
     <>
       <FirstScreenBackground />
-      <FirstRegisterInput navigation={navigation} />
+      <LastRegisterInput navigation={navigation} />
     </>
   );
 }
