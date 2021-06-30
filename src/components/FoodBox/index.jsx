@@ -1,5 +1,6 @@
-import React from 'react'
-import { Image } from 'react-native'
+/* eslint-disable react/prop-types */
+import React from 'react';
+import { Image } from 'react-native';
 import styled from 'styled-components/native';
 
 const FoodWrapper = styled.View`
@@ -7,10 +8,10 @@ const FoodWrapper = styled.View`
   top: 550px;
   width: 277px;
   height: 190px;
-  background: #ECF0F1;
+  background: #ecf0f1;
   box-shadow: 0px 0.2px 4px rgba(0, 0, 0, 0.25);
   border-radius: 17px;
-`;   
+`;
 
 const FoodTitle = styled.Text`
   font-size: 15px;
@@ -22,7 +23,7 @@ const FoodTitle = styled.Text`
 
 const CaloricValue = styled.Text`
   font-size: 15px;
-  color: #7F8C8D;
+  color: #7f8c8d;
   text-align: center;
   margin-top: 10px;
 `;
@@ -35,5 +36,5 @@ export function FoodBox({ children, foodImageSource }) {
       <FoodTitle> {foodName} </FoodTitle>
       <CaloricValue> {caloricValue} </CaloricValue>
     </FoodWrapper>
-  )
+  );
 }

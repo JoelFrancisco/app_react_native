@@ -2,7 +2,7 @@
 import React from 'react';
 
 import { FirstScreenBackground } from '@components/FirstScreenBackground';
-import { SecondRegisterInput } from '../SecondRegisterInput';
+import { SecondRegisterInput } from '@components/SecondRegisterInput';
 
 export function SecondRegisterScreen({ navigation }) {
   return (

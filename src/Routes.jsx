@@ -3,14 +3,14 @@ import React, { useEffect } from 'react';
 import 'react-native-gesture-handler';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import { Config } from '@pages/Settings';
-import { LastScreenRegister } from '@pages/LastScreenRegister';
-import { useUserData } from './contexts/UserDataContext';
 
-import { Home } from './pages/Home';
-import { Search } from './pages/Search';
-import { FirstScreenRegister } from './pages/FirstScreenRegister';
-import { SecondRegisterScreen } from './components/SecondRegisterScreen';
+import { Home } from '@pages/Home';
+import { Search } from '@pages/Search';
+import { FirstScreenRegister } from '@pages/FirstScreenRegister';
+import { SecondRegisterScreen } from '@pages/SecondRegisterScreen';
+import { LastScreenRegister } from '@pages/LastScreenRegister';
+import { Config } from '@pages/Settings';
+import { useUserData } from '@contexts/UserDataContext';
 
 const Stack = createStackNavigator();
 
@@ -18,6 +18,8 @@ export function Routes({ initialRouteName, userData }) {
   const { setUserData } = useUserData();
 
   useEffect(() => setUserData(userData), []);
+
+  // TODO: Finish state management
 
   return (
     <NavigationContainer>

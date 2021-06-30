@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import React from 'react';
 import { Image, Dimensions } from 'react-native';
 import styled from 'styled-components/native';

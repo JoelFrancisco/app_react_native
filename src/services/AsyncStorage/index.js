@@ -1,3 +1,5 @@
+/* eslint-disable consistent-return */
+/* eslint-disable no-console */
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const storeData = async (key, value) => {

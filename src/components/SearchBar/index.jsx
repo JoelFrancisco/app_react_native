@@ -11,7 +11,7 @@ const SearchBarInput = styled.TextInput`
   background: #ecf0f1;
   padding: 5px;
   border-radius: 20px;
-  border: 1px #1abc9c solid;
+  border: 1px #1abc9c;
 `;
 
 export function SearchBar() {
@@ -21,6 +21,7 @@ export function SearchBar() {
   useEffect(() => {
     (async () => {
       // const response = await getFoodInfo(text);
+      // TODO: API Call and state management
     })();
   }, [text]);
   return <SearchBarInput onChangeText={setText} />;

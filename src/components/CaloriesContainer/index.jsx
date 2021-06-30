@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components/native';
 
-import { getData } from '@services/AsyncStorage';
+// import { getData } from '@services/AsyncStorage';
 
 const MainContainer = styled.View`
   width: 250px;
@@ -21,6 +21,8 @@ const Value = styled.Text`
 
 export function CaloriesContainer({ keyValue }) {
   const [calories, setCalories] = useState(null);
+
+  // TODO: state management
 
   useEffect(() => {
     (async () => {

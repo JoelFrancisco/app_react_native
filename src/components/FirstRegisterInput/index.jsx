@@ -26,6 +26,9 @@ const InputText = styled.TextInput`
   margin-left: auto;
   margin-right: auto;
   z-index: 98;
+  border: 1px #1abc9c;
+  border-radius: 17px;
+  margin-bottom: 5px;
 `;
 
 const Wrapper = styled.View`
